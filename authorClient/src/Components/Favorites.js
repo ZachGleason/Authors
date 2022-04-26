@@ -9,11 +9,11 @@ const Favorites = (props) => {
     useEffect(() => {
         axios.get("http://localhost:8000/authors")
         .then((res) => {
-            console.log(res.data);
-            setAuthors(res.data);
+            setAuthors(res.data.Authors);
+            console.log(res.data.Authors);
             })
-        .catch((err) => console.log(err))
-    }, [])
+        .catch((err) => console.log(err));
+    },  []);
 
     return (
         <div>
@@ -28,16 +28,12 @@ const Favorites = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {Authors.map((Author, index) => {
-                        return (
-                            <div key={index}>
-                                <tr>
-                                    <p>{ Author.name }</p>
-                                </tr>   
-                                <Link to={`/edit/${Author._id}`}>Edit Author</Link>
-                            </div>
-                        );  
-                    })}
+                    {Authors.map((Author, index) => (
+                        <tr key={index}>
+                            { Author.name }
+                            <Link to={`/edit/${Author._id}`}>Edit Author</Link>
+                        </tr>                
+                    ))}
                 </tbody>
             </table>
         </div>
