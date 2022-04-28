@@ -1,38 +1,118 @@
-.App {
+.favorites {
+  width: 500px;
+  height: 650px;
+  border-radius: 40px;
+  border: 2px solid black;
   text-align: center;
+  margin: auto;
+  margin-top: 10px;
+  background-color: lightskyblue;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.view {
+  text-decoration: none;
+  color: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.edit {
+  text-decoration: none;
+  color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.delete {
+  text-decoration: none;
+  color: black;
 }
 
-.App-link {
-  color: #61dafb;
+.author {
+  text-decoration: none;
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.authors {
+  text-decoration: underline;
+}
+
+.text {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  letter-spacing: 2px;
+}
+
+.table {
+  margin-top: 10px;
+}
+
+.items {
+  width: 500px;
+}
+
+.names {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.box {
+  height: 500px;
+  overflow: scroll;
+}
+
+.viewing {
+  width: 400px;
+  height: 200px;
+  border: 2px solid black;
+  background-color: lightskyblue;
+  border-radius: 40px;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.editbox {
+  width: 400px;
+  height: 200px;
+  border: 2px solid black;
+  background-color: lightskyblue;
+  border-radius: 40px;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.updating {
+  margin-top: 10px;
+}
+
+.input {
+  border-radius: 5px;
+  height: 25px;
+  border: none;
+}
+
+.inputs {
+  border-radius: 5px;
+  height: 25px;
+  border: none;
+}
+
+.linking {
+  margin-top: 10px;
+}
+
+.add {
+  margin-top: 10px;
+}
+
+.gohome {
+  margin-top: 10px;
+}
+
+.creating {
+  width: 400px;
+  height: 200px;
+  border: 2px solid black;
+  background-color: lightskyblue;
+  border-radius: 40px;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
 }

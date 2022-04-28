@@ -1,32 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import {useParams} from "react-router-dom";
 import axios from 'axios';
-import '../App.css';
+import react, { useEffect, useState } from 'react';
+import Button from '@mui/material/Button';
+import { useNavigate, useParams} from "react-router-dom";
 import {Link} from 'react-router-dom';
-import res from 'express/lib/response';
+import '../App.css';
 
 
 
 const Edit = (props) => {
-    const {id} = useParams(); 
-    const [Authors, setAuthors] = useState([])
+    const { id } = useParams();
+    const [name, setName] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/edit/${id}`)
-            .then( res => {
-                console.log(res.data.Authors);
-                setAuthors(res.data.Authors);
-            })
-            .catch( err => console.log(err) )
-    }, [id])
+        axios.get(`http://localhost:8000/author/${id}`)
+        .then((res) => {
+        setName(res.data.Author.name);
+        console.log(res.data.Author.name);
+        })
+        .catch((err) => console.log(err)) 
+    }, [])
+
+    const updateAuthor = ( e ) => {
+        e.preventDefault();
+        axios.put(`http://localhost:8000/author/${id}`, {
+            name,
+        })
+        .then((res) => {
+            console.log(res);
+            console.log(res.data);
+            navigate("/");
+        })
+        .catch((err) => {console.log(err)})
+    }
 
 
     return (
-    <div>
-        <p>{Authors.name}</p>
-        <Link to={'/'}>Home</Link>
+    <div className='editbox'>
+        <form >
+                <h1>Edit Author</h1>
+                <input type="text" value={name}  onChange={(e) => setName(e.target.value)} className='input'/>
+        </form>
+        <div className='updating'>
+                <Button variant="contained" type="submit" onClick={ updateAuthor }>Update</Button>
+        </div>
+        <div className='linking'> 
+                <Link to={`/`}>Home</Link>
+        </div>
     </div>
-)
+    );
 }
 
-export default Edit
+export default Edit;
